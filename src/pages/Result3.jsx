@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/style.css";
-import topImage from "../img/result-image.png";
+import resultImage from "../img/result-image.png";
 
 function Result3() {
   return (
@@ -8,15 +8,13 @@ function Result3() {
       <h2 className="result-title">診断結果</h2>
       <div className="result-content">
         <img
-          src={topImage}
-          alt="ビジョナリーイノベーター"
+          src={resultImage}
+          alt=""
           className="result-image"
         />
-        <h3 className="result-heading">ビジョナリーイノベーター</h3>
+        <h3 className="result-heading">挑戦の日！</h3>
         <p className="result-description">
-          適した起業方法：
-          <br />
-          テクノロジースタートアップ、クリエイティブエージェンシー
+          Your courage and determination will lead to success!
         </p>
       </div>
     </div>

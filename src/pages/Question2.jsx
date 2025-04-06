@@ -2,25 +2,49 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/style.css";
 
+// 採点関数
+const calculateResult = (answersObj) => {
+  // ランダムに結果を選ぶ配列
+  const results = ["result1", "result2", "result3", "result4"];
+  const randomIndex = Math.floor(Math.random() * results.length);
+  const result = results[randomIndex];
+
+  // スコアもランダムに設定する場合（任意）
+  const score = {
+    realistScore: Math.floor(Math.random() * 10),
+    creatorScore: Math.floor(Math.random() * 10),
+    goalScore: Math.floor(Math.random() * 10),
+    buildScore: Math.floor(Math.random() * 10),
+  };
+
+  return { result, score };
+};
+
 const questionsPart2 = [
-  { q_id: "q11", q_text: "日々の習慣やルーティンを大切にしていますか？" },
-  { q_id: "q12", q_text: "斬新なアイデアを考えることにワクワクしますか？" },
-  { q_id: "q13", q_text: "リスク管理を重視しますか？" },
-  { q_id: "q14", q_text: "大きな変化を起こすことに魅力を感じますか？" },
-  { q_id: "q15", q_text: "小さな成功の積み重ねを好みますか？" },
-  { q_id: "q16", q_text: "既存の枠にとらわれない発想ができますか？" },
-  { q_id: "q17", q_text: "現実的な制約内で解決策を見出すことが得意ですか？" },
+  { q_id: "q6", q_text: "仕事やプライベートで、クリエイティブなアイデアを生み出すことが得意？"},
   {
-    q_id: "q18",
-    q_text: "遠い未来の目標に向かって進むことにモチベーションを感じますか？",
+    q_id: "q7",
+    q_text: "定期的な運動やスポーツで、健康維持に努めてる？"
   },
-  { q_id: "q19", q_text: "日々の努力の積み重ねを重視しますか？" },
-  { q_id: "q20", q_text: "創造的な問題解決アプローチを取ることが多いですか？" },
+  {
+    q_id: "q8",
+    q_text: "旅行や外出で、普段と違う環境に触れることを楽しんでる？"
+  },
+  {
+    q_id: "q9",
+    q_text: "日常の中で、小さな幸せや充実感を見つけることが得意？"
+  },
+  {
+    q_id: "q10",
+    q_text: "自分の理想のライフスタイルを実現するために、積極的に行動してる？"
+  },
 ];
 
-function Question2({ answers, setAnswers, handleResult }) {
+function Question2({ answers, setAnswers, resultProp }) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [result, setResult] = useState(null);
+  const [score, setScore] = useState({});
 
   useEffect(() => {
     window.scrollTo(0, 0); // ページがマウントされたときにトップにスクロール
@@ -39,9 +63,20 @@ function Question2({ answers, setAnswers, handleResult }) {
     }
     setErrorMessage("");
 
-    handleResult();
-    navigate("/register");
-  };
+    const { result: calculatedResult, score: calculatedScore } = calculateResult(answers);
+    setResult(calculatedResult);
+    setScore(calculatedScore);
+
+    if (resultProp === "result1") {
+      navigate("/result1");
+    } else if (resultProp === "result2") {
+      navigate("/result2");
+    } else if (resultProp === "result3") {
+      navigate("/result3");
+    } else {
+      navigate("/result4");
+    }
+};
 
   return (
     <div className="main-content">

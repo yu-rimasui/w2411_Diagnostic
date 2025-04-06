@@ -4,7 +4,7 @@ import "../css/style.css";
 function Footer() {
   return (
     <footer className="app-footer">
-      <p>© 2023 Ink AI Labs, Inc</p>
+      <p>© 2024 usagi Labs, Inc</p>
     </footer>
   );
 }

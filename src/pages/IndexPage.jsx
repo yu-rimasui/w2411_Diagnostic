@@ -8,10 +8,10 @@ function IndexPage() {
 
   return (
     <div className="index-container">
-      <h1>起業家適性診断</h1>
-      <p>20個の質問に答えて、あなたの起業家適性を診断しましょう。</p>
+      <h1>診断テスト</h1>
+      <p>スタートボタンを押して、20の質問に答えよう！</p>
       <div className="image-wrapper">
-        <img src={topImage} alt="診断イメージ" className="top-image" />
+        <img src={topImage} alt="" className="top-image" />
       </div>
       <div className="button-container">
         <button
@@ -20,7 +20,7 @@ function IndexPage() {
             navigate("/question1");
           }}
         >
-          診断スタート
+          スタート
         </button>
       </div>
     </div>
@@ -28,3 +28,5 @@ function IndexPage() {
 }
 
 export default IndexPage;
+
+

@@ -7,7 +7,7 @@ function Header() {
     <header className="app-header">
       <div className="header-content">
         <Link to="/" className="header-logo">
-          起業家適性診断
+        Diagnostic
         </Link>
         {/* <nav className="header-nav">
           <Link to="/">Home</Link>
