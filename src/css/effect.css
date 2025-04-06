@@ -1,0 +1,57 @@
+/* effect.css */
+
+/* ローディングオーバーレイのスタイル */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 139, 87, 0.95); /* 背景を半透明に */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 他の要素より前面に表示 */
+}
+
+/* スピナーの基本スタイル */
+.spinner_ngNb {
+  animation: spinner_ZRWK 1.2s cubic-bezier(0.52, 0.6, 0.25, 0.99) infinite;
+  fill: #ffffff; /* 色を白に設定 */
+}
+
+.spinner_6TBP {
+  animation-delay: 0.6s;
+  fill: #ffffff; /* 色を白に設定 */
+}
+
+/* アニメーションの定義 */
+@keyframes spinner_ZRWK {
+  0% {
+    transform: translate(12px, 12px) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+}
+
+/* フェードイン・フェードアウトの基本スタイル */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1500ms; /* トランジション時間を1000msに調整 */
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1500ms; /* トランジション時間を1000msに調整 */
+}
